@@ -7,7 +7,7 @@ let bookList = [
     {"title":"some book", "author":"some author", "pages":400},
 ]
 
-const Book = ({title, author, pages, freeBookmark}) =>{
+const Book = ({title="no title provided", author="no author", pages=0, freeBookmark}) =>{
     return(
         <section>
             <h2>{title}</h2>
@@ -30,6 +30,16 @@ const NotHiring = () =>
 
 class Library extends Component{
     
+    static defaultProps = {
+        books:[
+            {
+                "title":"title of the book",
+                "author":"author of the book",
+                "pages":1000
+            }
+        ]
+    }
+
     state = { 
         open: true,
         freeBookmark: true,
